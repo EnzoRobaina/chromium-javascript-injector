@@ -29,17 +29,8 @@ const fn = () => {}
 const addToStorage = (objList, callback = fn) => {
     if (!objList) { return }
 
-    chrome.storage.local.get({ "__injector": [] }, function(result) {
-        const urls = objList.map(obj => obj.url)
-
-        let clonedResult = [ ...result["__injector"] ]
-        clonedResult = clonedResult.filter(r => {
-            return !new Boolean(urls[r.url])
-        })
-
-        const mergedResult = [ ...clonedResult, ...objList ]
-
-        chrome.storage.local.set({ "__injector": mergedResult }, callback)
+    chrome.storage.local.clear(() => {
+        chrome.storage.local.set({ "__injector": [ ...objList ] }, callback)
     })
 }
 
