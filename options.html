@@ -8,12 +8,35 @@
     <title>Javascript Injector Options Popup</title>
 </head>
 <body>
-    <div class="row item">
-        <input type="text">
-        <textarea></textarea>
-        <input type="checkbox" checked>
+    <div id="scroller">
+
     </div>
+    <button id="add">Add Another</button>
     <button id="save">Save</button>
+
+    <template id="item">
+        <div class="row item">
+            <button class="remove-me">&#10006;</button>
+            <div class="input-group">
+                <label>Domain</label>
+                <input name="domain" type="text">
+            </div>
+            <div class="input-group">
+                <label>Code</label>
+                <textarea name="code"></textarea>
+            </div>
+            <div class="input-group">
+                <label>Match for any subdomain</label>
+                <input name="match_sub" type="checkbox">
+                <br>
+                <small>if checked and domain is 'spotify.com', will run (for example) in 'open.spotify.com' </small>
+            </div>
+            <div class="input-group">
+                <label>Enabled</label>
+                <input name="enabled" type="checkbox" checked>
+            </div>
+        </div>
+    </template>
 </body>
 <script src="options.js"></script>
 </html>
