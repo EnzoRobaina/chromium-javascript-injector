@@ -7,6 +7,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     return true
 })
 
+chrome.browserAction.onClicked.addListener(() => {
+    chrome.runtime.openOptionsPage()
+})
+
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (changeInfo?.status !== 'loading') { return; }
 
