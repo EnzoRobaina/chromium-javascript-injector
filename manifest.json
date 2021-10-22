@@ -1,0 +1,23 @@
+{
+    "name": "Javascript Injector",
+    "description": "An extension capable of injecting javascript code to be run on page load",
+    "version": "1.0",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+          "matches": ["https://*/*", "http://*/*"],
+          "js": ["psl.min.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "permissions": ["storage", "activeTab", "tabs", "https://*/*", "http://*/*"],
+    "optional_permissions": [],
+    "page_action": {},
+    "content_security_policy": "script-src 'self' 'eval-unsafe' 'eval'; object-src 'self'",
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": false
+    }
+}

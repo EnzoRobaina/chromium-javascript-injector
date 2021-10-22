@@ -1,0 +1,31 @@
+body {
+    padding: 1rem !important
+}
+
+* {
+    transition: all linear .1s;
+}
+
+button#save {
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border-width: 0px !important;
+    border-style: none !important;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+button#save:hover {
+    background-color: greenyellow;
+}
+
+.item {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border: 1px solid black;
+    margin-bottom: 1rem;
+}
