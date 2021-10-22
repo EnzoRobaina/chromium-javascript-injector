@@ -3,17 +3,27 @@ const log = console.log
 log('injecting')
 
 const domain = psl.get(window.location.hostname)
+const hostname = window.location.hostname
 
 if (domain) {
-    chrome.storage.local.get(null, function(result) {
+    chrome.storage.local.get({ '__injector': [] }, function(result) {
         log(result)
-        const data = result?.[KEY]?.[domain]
 
-        log('data', data)
+        const found = result['__injector'].filter(r => {
+            if (r?.match_sub) {
+                return domain === r.url
+            }
 
-        if (data?.enabled && data?.script) {
+            return hostname === r.url
+        })?.[0]
+
+        log('found', found)
+
+        if (!found) { return }
+
+        if (found?.enabled && found?.code) {
             try {
-                eval(data.script)
+                eval(found.code)
                 chrome.extension.sendMessage(
                     { kind: 'badge' }, 
                     () => {}
