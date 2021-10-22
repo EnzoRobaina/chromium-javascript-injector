@@ -1,5 +1,3 @@
-const KEY = '__injector'
-
 const domain = psl.get(window.location.hostname)
 const hostname = window.location.hostname
 
