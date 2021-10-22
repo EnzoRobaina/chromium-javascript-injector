@@ -13,23 +13,24 @@
     </div>
     <button id="add">Add Another</button>
     <button id="save">Save</button>
+    <span id="saved-changes">Changes saved!</small>
 
     <template id="item">
         <div class="row item">
-            <button class="remove-me">&#10006;</button>
+            <button title="Remove" class="remove-me">&#10006;</button>
             <div class="input-group">
                 <label>Domain</label>
                 <input name="domain" type="text">
             </div>
             <div class="input-group">
                 <label>Code</label>
-                <textarea name="code"></textarea>
+                <textarea rows="5" name="code"></textarea>
             </div>
             <div class="input-group">
                 <label>Match for any subdomain</label>
                 <input name="match_sub" type="checkbox">
                 <br>
-                <small>if checked and domain is 'spotify.com', will run (for example) in 'open.spotify.com' </small>
+                <small>if checked and domain is 'spotify.com', will run (for example) in 'open.spotify.com'.</small>
             </div>
             <div class="input-group">
                 <label>Enabled</label>

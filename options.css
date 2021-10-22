@@ -1,11 +1,20 @@
 body {
   padding: 1rem !important;
+  background-color: black;
 }
 
 * {
   -webkit-transition: all linear .1s;
   transition: all linear .1s;
   font-family: Consolas, monaco, monospace;
+}
+
+*:not(input):not(textarea) {
+  color: white;
+}
+
+input, textarea {
+  color: black !important;
 }
 
 button {
@@ -41,7 +50,8 @@ button#save:hover {
   position: relative;
   padding-top: .5rem;
   padding-bottom: .5rem;
-  border: 1px solid black;
+  border-radius: .25rem;
+  border: 1px solid white;
   margin-bottom: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,7 +60,7 @@ button#save:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: .5rem;
+  padding: .75rem;
 }
 
 .item button.remove-me {
@@ -59,13 +69,18 @@ button#save:hover {
   height: 32px;
   padding: .15rem;
   font-size: .75rem;
-  background-color: red;
+  background-color: #ee0606;
   color: white;
   position: absolute;
   top: 0;
   right: 0;
   -webkit-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
+}
+
+label {
+  display: inline-block !important;
+  margin-bottom: .5rem !important;
 }
 
 input:not([type="checkbox"]), button {
@@ -88,7 +103,7 @@ input:not([type="checkbox"]), textarea {
 }
 
 input:not([type="checkbox"]):focus, textarea:focus {
-  border-color: black;
+  border-color: #3070e6;
 }
 
 textarea {
@@ -96,10 +111,19 @@ textarea {
 }
 
 div.input-group:not(:last-of-type) {
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
 }
 
 div.input-group label {
   font-weight: bold;
+}
+
+span#saved-changes {
+  display: none;
+  font-weight: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: center;
 }
 /*# sourceMappingURL=options.css.map */

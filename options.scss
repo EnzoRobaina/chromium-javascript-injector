@@ -1,10 +1,19 @@
 body {
-    padding: 1rem !important
+    padding: 1rem !important;
+    background-color: black;
 }
 
 * {
     transition: all linear .1s;
     font-family: Consolas, monaco, monospace;
+}
+
+*:not(input):not(textarea) {
+    color: white;
+}
+
+input, textarea {
+    color: black !important;
 }
 
 button {
@@ -41,11 +50,12 @@ button#save {
     position: relative;
     padding-top: .5rem;
     padding-bottom: .5rem;
-    border: 1px solid black;
+    border-radius: .25rem;
+    border: 1px solid white;
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
-    padding: .5rem;
+    padding: .75rem;
 
     button.remove-me {
         border-radius: 50%;
@@ -53,13 +63,18 @@ button#save {
         height: 32px;
         padding: .15rem;
         font-size: .75rem;
-        background-color: red;
+        background-color: rgb(238, 6, 6);
         color: white;
         position: absolute;
         top: 0;
         right: 0;
         transform: translate(50%, -50%);
     }
+}
+
+label {
+    display: inline-block !important;
+    margin-bottom: .5rem !important;
 }
 
 input:not([type="checkbox"]), button {
@@ -80,7 +95,7 @@ input:not([type="checkbox"]), textarea {
     transition: border-color .25s ease !important;
 
     &:focus {
-        border-color: black;
+        border-color: rgb(48, 112, 230);
     }
 }
 
@@ -90,12 +105,21 @@ textarea {
 
 div.input-group {
     &:not(:last-of-type) {
-        margin-bottom: .5rem;
+        margin-bottom: 1rem;
     }
 
     label {
         font-weight: bold;
     }
+}
+
+span#saved-changes {
+    display: none;
+    font-weight: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    text-align: center;
 }
 
 #scroller {

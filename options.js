@@ -76,8 +76,6 @@ const appendNewItem = (data = null) => {
 }
 
 document.addEventListener('DOMContentLoaded', function(e) {
-    document.body.style.background = 'gray'
-
     const add = q('#add', true)
     const save = q('#save', true)
 
@@ -103,8 +101,11 @@ document.addEventListener('DOMContentLoaded', function(e) {
     })
 
     save.addEventListener('click', (e) => {
-        console.log('clicked')
         const itens = q('div.row.item')
+        const savedChangesSpan = q('#saved-changes', true)
+
+        let toSave = {}
+
         itens.forEach(item => {
             const domain = item.querySelector('[name="domain"]').value
 
@@ -116,14 +117,23 @@ document.addEventListener('DOMContentLoaded', function(e) {
                 const obj = {}
     
                 obj[domain] = { script, match_sub, enabled }
-    
-                addToStorage(obj, () => { 
-                    save.style.background = 'black'
-                    setTimeout(() => {
-                        save.style.background = 'green'
-                    }, 1000)
-                })
+
+                toSave = { ...toSave, ...obj }
             }
-        })        
+        })
+        
+        save.setAttribute('disabled', true)
+        add.setAttribute('disabled', true)
+
+        addToStorage(toSave, () => { 
+            save.removeAttribute('disabled')
+            add.removeAttribute('disabled')
+
+            savedChangesSpan.style.display = 'block'
+
+            setTimeout(() => {
+                savedChangesSpan.style.display = 'none'
+            }, 1000)
+        })
     })
 })
