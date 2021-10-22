@@ -1,14 +1,10 @@
 const KEY = '__injector'
-const log = console.log
-log('injecting')
 
 const domain = psl.get(window.location.hostname)
 const hostname = window.location.hostname
 
 if (domain) {
     chrome.storage.local.get({ '__injector': [] }, function(result) {
-        log(result)
-
         const found = result['__injector'].filter(r => {
             if (r?.match_sub) {
                 return domain === r.url
@@ -16,8 +12,6 @@ if (domain) {
 
             return hostname === r.url
         })?.[0]
-
-        log('found', found)
 
         if (!found) { return }
 

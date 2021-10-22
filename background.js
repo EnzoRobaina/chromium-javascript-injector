@@ -4,8 +4,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         chrome.browserAction.setBadgeText({ tabId: sender?.tab?.id, text: '✓'});
     }
 
-    console.log(message, sender, sendResponse)
-
     return true
 })
 
