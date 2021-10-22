@@ -12,12 +12,17 @@
     "background": {
         "scripts": ["background.js"]
     },
-    "permissions": ["storage", "activeTab", "tabs", "https://*/*", "http://*/*"],
+    "permissions": ["storage", "activeTab", "tabs", "https://*/*", "http://*/*", "alarms"],
     "optional_permissions": [],
-    "page_action": {},
+    "browser_action": {},
     "content_security_policy": "script-src 'self' 'eval-unsafe' 'eval'; object-src 'self'",
     "options_ui": {
         "page": "options.html",
         "open_in_tab": false
+    },
+    "icons": { 
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+       "128": "icons/icon128.png" 
     }
 }

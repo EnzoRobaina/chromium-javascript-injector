@@ -12,7 +12,16 @@ if (domain) {
         log('data', data)
 
         if (data?.enabled && data?.script) {
-            eval(data.script)
+            try {
+                eval(data.script)
+                chrome.extension.sendMessage(
+                    { kind: 'badge' }, 
+                    () => {}
+                )
+            }
+            catch (e) {
+                console.error('Exception thrown when evaluating your js. Check the syntax.')
+            }
         }
     })
 }
